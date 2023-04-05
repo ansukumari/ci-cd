@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Code deploy action step
-        uses: ./gitrunner/ 
+        uses: ./github-action-script/ 
         id: deploy
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}

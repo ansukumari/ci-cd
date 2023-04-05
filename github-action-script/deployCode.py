@@ -125,5 +125,5 @@ elif app == 'prod-backend':
                 "text": alert['successMsg']
             }
         ]  
-        
+    })
         

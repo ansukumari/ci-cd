@@ -1,0 +1,47 @@
+# action.yml
+name: 'Run Git Server'
+description: 'Create Git Server container to autoamtically deploy code to Probo servers.'
+inputs:
+  aws_access_key_id:
+    required: true
+    default: ''
+  aws_secret_access_key:
+    required: true
+    default: ''
+  aws_region_name:
+    required: true
+    default: 'us-east-1'
+  application_name:
+    required: true
+    default: ''
+  github_repo_name:
+    required: true
+    default: ${{ github.repository }}
+  commit_id:
+    required: true
+    default: ''
+  github_workflow_user:
+    required: true
+    default: ${{ github.actor }}
+  github_ref_name:
+    required: true
+    default: ${{ github.ref_name }}
+  github_run_id:
+    required: true
+    default: ${{ github.run_id }}
+outputs:
+  servers: 
+    description: 'The list of all the servers on which the code was deployed.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '--accessID=${{ inputs.aws_access_key_id }}'
+    - '--secretKey=${{ inputs.aws_secret_access_key }}'
+    - '--reg=${{ inputs.aws_region_name }}'
+    - '--app=${{ inputs.application_name }}'
+    - '--repo=${{ inputs.github_repo_name }}'
+    - '--commitID=${{ inputs.commit_id }}'
+    - '--user=${{ inputs.github_workflow_user }}'
+    - '--ref=${{ inputs.github_ref_name }}'
+    - '--run=${{ inputs.github_run_id }}'

@@ -22,4 +22,4 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           commit_id: ${{ github.sha }}
-          application_name: 'web-server'
+          application_name: 'node-server'

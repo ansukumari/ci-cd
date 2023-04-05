@@ -9,10 +9,10 @@ permissions:
     group: ubuntu
 hooks:
   AfterInstall:
-    - location: scripts/set-permissions
+    - location: codedeploy-scripts/set-permissions
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: scripts/start_server
+    - location: codedeploy-scripts/start_server
       timeout: 300
       runas: ubuntu

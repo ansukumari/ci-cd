@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/<repo-name>
+permissions:
+  - object: /home/ubuntu/<repo-name>
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  AfterInstall:
+    - location: scripts/set-permissions
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_server
+      timeout: 300
+      runas: ubuntu
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 300
+      runas: ubuntu

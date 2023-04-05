@@ -1,11 +1,11 @@
-name: Prod Auto Deploy Pipeline
+name: Deployment Pipeline
 on:
   release:
     types:
       - created
-  push:
-    branches:
-      - main  
+#   push:
+#     branches:
+#       - main  
 
 jobs:
   deploy:
